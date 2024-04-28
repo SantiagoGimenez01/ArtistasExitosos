@@ -23,3 +23,16 @@ letrasMinusculas cancion = length (intersect cancion ['a'..'z'])
 
 saberCalificacion :: Cancion -> Number
 saberCalificacion = (10+).letrasMinusculas
+
+--Punto 2
+esBuenaCalificacion :: Cancion -> Bool
+esBuenaCalificacion = (>20).saberCalificacion
+
+sumaDeCalificaciones :: [Cancion] -> Number
+sumaDeCalificaciones canciones = sum ( map saberCalificacion canciones)
+
+esExitoso :: Artista -> Bool
+esExitoso artista = ((>50).sumaDeCalificaciones)(filter esBuenaCalificacion (canciones artista))
+
+artistasExitosos :: [Artista] -> [Artista]
+artistasExitosos = filter esExitoso 
