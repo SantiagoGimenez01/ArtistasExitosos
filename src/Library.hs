@@ -39,11 +39,11 @@ artistasExitosos :: [Artista] -> [Artista]
 artistasExitosos = filter esExitoso 
 
 --Prototipo P4
-prototipo :: Artista -> [Cancion]
-prototipo artista = filter (\cancion -> ((>20).(+10).length) (intersect cancion ['a'..'z'])) (canciones artista)
+prototipo :: Artista -> Bool
+prototipo artista = ((>50).sum.map (\cancion -> ((+10).length) (intersect cancion ['a'..'z']))) (filter (\cancion -> ((>20).(+10).length) (intersect cancion ['a'..'z'])) (canciones artista))
 
 {-
 --Punto 4
 punto4:: [Artista] -> [Artista]
-punto4 = filter () 
+punto4 = filter (((>50).sum.map (\cancion -> ((+10).length) (intersect cancion ['a'..'z']))) (filter (\cancion -> ((>20).(+10).length) (intersect cancion ['a'..'z'])) (canciones artista))) 
 -}
