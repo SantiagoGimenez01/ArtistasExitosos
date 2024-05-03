@@ -34,5 +34,16 @@ sumaDeCalificaciones canciones = sum ( map saberCalificacion canciones)
 esExitoso :: Artista -> Bool
 esExitoso artista = ((>50).sumaDeCalificaciones)(filter esBuenaCalificacion (canciones artista))
 
+--Punto 3
 artistasExitosos :: [Artista] -> [Artista]
 artistasExitosos = filter esExitoso 
+
+--Prototipo P4
+prototipo :: Artista -> [Cancion]
+prototipo artista = filter (\cancion -> ((>20).(+10).length) (intersect cancion ['a'..'z'])) (canciones artista)
+
+{-
+--Punto 4
+punto4:: [Artista] -> [Artista]
+punto4 = filter () 
+-}
